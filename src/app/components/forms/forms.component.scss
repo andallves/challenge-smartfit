@@ -60,25 +60,28 @@
   }
 
   .checkbox-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     color: var(--dark-gray);
     margin: 32px 0;
     font-size: 12px;
-    position: relative;
     width: 100%;
+    gap: 12px;
 
-    input {
-      margin-right: 6px;
-    }
+    .checkbox {
+      display: flex;
+      align-items: center;
 
-    span {
-      position: absolute;
-      right: 0;
+      input[type="checkbox"] {
+        margin-right: 6px;
+      }
     }
   }
 
   .btn-wrapper {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     gap: 12px;
@@ -104,6 +107,18 @@
     .btn-secondary {
       background: transparent;
       border: 2px solid var(--light-text);
+    }
+  }
+}
+
+@media (min-width: 768px) {
+  .form-group {
+    .checkbox-wrapper {
+      flex-direction: row;
+      justify-content: space-between;
+    }
+    .btn-wrapper {
+      flex-direction: row;
     }
   }
 }
