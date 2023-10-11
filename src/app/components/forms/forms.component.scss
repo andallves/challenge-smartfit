@@ -40,7 +40,7 @@
     padding: 8px 4px;
     border-top: 1px solid var(--light-text);
     position: relative;
-    font-size: 12px;
+    font-size: 16px;
     color: var(--light-gray);
 
     input {
@@ -65,7 +65,7 @@
     justify-content: center;
     color: var(--dark-gray);
     margin: 32px 0;
-    font-size: 12px;
+    font-size: 16px;
     width: 100%;
     gap: 12px;
 
@@ -90,7 +90,7 @@
 
     .btn {
       text-transform: uppercase;
-      font-size: 12px;
+      font-size: 16px;
       font-weight: 700;
       color: var(--dark-gray);
       padding: 10px;
