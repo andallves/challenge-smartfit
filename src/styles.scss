@@ -19,6 +19,10 @@ body {
   width: 100%;
 }
 
+li {
+  list-style: none;
+}
+
 @font-face {
   font-family: 'Gotham';
   src: url(assets/fonts/Gotham/gotham-light.woff2) format('truetype');
