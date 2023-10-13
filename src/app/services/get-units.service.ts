@@ -12,12 +12,13 @@ export class GetUnitsService {
 
   private allUnitsSubject: BehaviorSubject<Location[]> = new BehaviorSubject<Location[]>([]);
   private allUnits$: Observable<Location[]> = this.allUnitsSubject.asObservable();
-  private filteredUnits: Location[] = [];
+  private filteredUnitsSubject: BehaviorSubject<Location[]> = new BehaviorSubject<Location[]>([]);
+  private filteredUnits$: Observable<Location[]> = this.filteredUnitsSubject.asObservable();
 
   constructor(private httpClient: HttpClient) {
     this.httpClient.get<UnitsResponse>(this.urlApi).subscribe((data) => {
       this.allUnitsSubject.next(data.locations);
-      this.filteredUnits = data.locations;
+      this.filteredUnitsSubject.next(data.locations);
     });
   }
 
@@ -25,11 +26,11 @@ export class GetUnitsService {
     return this.allUnits$;
   }
 
-  getFilteredUnits() {
-    return this.filteredUnits;
+  getFilteredUnits(): Observable<Location[]> {
+    return this.filteredUnits$;
   }
 
   setFilteredUnits(value: Location[]) {
-    this.filteredUnits = value;
+    this.filteredUnitsSubject.next(value);
   }
 }

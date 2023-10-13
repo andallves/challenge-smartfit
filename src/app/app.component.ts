@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { Location } from './interfaces/location.interface';
 import { GetUnitsService } from './services/get-units.service';
 
@@ -15,7 +15,9 @@ export class AppComponent {
   constructor(private unitService: GetUnitsService) {}
 
   onSubmit() {
-    this.unitsList = this.unitService.getFilteredUnits();
+    this.unitService.getFilteredUnits().subscribe(
+      units => this.unitsList = units
+    );
     this.showList.next(true);
   }
 }
